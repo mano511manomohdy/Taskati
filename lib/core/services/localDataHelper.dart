@@ -2,6 +2,9 @@ import 'package:hive/hive.dart';
 
 class Localdatahelper {
   static Box? userbox;
+  static String NameKey = "name";
+  static String ImageKey = "image";
+  static String isUploadedKey = "isUploaded";
 
   static init() {
     userbox = Hive.box("userBox");

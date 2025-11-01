@@ -33,8 +33,15 @@ class _UploadscreenState extends State<Uploadscreen> {
             ),
             onPressed: () {
               if (path != null && _namecontroller.text.isNotEmpty) {
-                Localdatahelper.cacheUserData("name", _namecontroller.text);
-                Localdatahelper.cacheUserData("imagepath", path);
+                Localdatahelper.cacheUserData(
+                  Localdatahelper.NameKey,
+                  _namecontroller.text,
+                );
+                Localdatahelper.cacheUserData(Localdatahelper.ImageKey, path);
+                Localdatahelper.cacheUserData(
+                  Localdatahelper.isUploadedKey,
+                  true,
+                );
                 context.PushReplacement(Homescreen());
               } else if (path == null && _namecontroller.text.isNotEmpty) {
                 ShowDialogToast(
