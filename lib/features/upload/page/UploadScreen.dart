@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:taskati/core/extenstions/Navigator.dart';
+import 'package:taskati/core/services/localDataHelper.dart';
 import 'package:taskati/core/utils/AppColors.dart';
 import 'package:taskati/core/utils/textStyle.dart';
 import 'package:taskati/core/widgets/custom_button.dart';
@@ -32,6 +33,8 @@ class _UploadscreenState extends State<Uploadscreen> {
             ),
             onPressed: () {
               if (path != null && _namecontroller.text.isNotEmpty) {
+                Localdatahelper.cacheUserData("name", _namecontroller.text);
+                Localdatahelper.cacheUserData("imagepath", path);
                 context.PushReplacement(Homescreen());
               } else if (path == null && _namecontroller.text.isNotEmpty) {
                 ShowDialogToast(

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:taskati/core/services/localDataHelper.dart';
 import 'package:taskati/core/utils/AppColors.dart';
 import 'package:taskati/core/utils/textStyle.dart';
 
@@ -27,7 +30,7 @@ class _HomescreenState extends State<Homescreen> {
                         Text(
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          "Hello ,Ahmed",
+                          "Hello ,${Localdatahelper.getUserData("name")}",
                           style: GetTitleTextStyle(
                             color: AppColors.primaryColor,
                             fontsize: 20,
@@ -37,7 +40,12 @@ class _HomescreenState extends State<Homescreen> {
                       ],
                     ),
                   ),
-                  CircleAvatar(radius: 30),
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundImage: FileImage(
+                      File(Localdatahelper.getUserData("imagepath")),
+                    ),
+                  ),
                 ],
               ),
             ],
