@@ -23,7 +23,7 @@ class DateTimeRow extends StatelessWidget {
             children: [
               Text(
                 "Start Time",
-                style: GetBodyTextStyle(fontWeight: FontWeight.w500),
+                style: GetBodyTextStyle(context, fontWeight: FontWeight.w500),
               ),
               Gap(5),
               TextFormField(
@@ -52,7 +52,7 @@ class DateTimeRow extends StatelessWidget {
             children: [
               Text(
                 "End Time",
-                style: GetBodyTextStyle(fontWeight: FontWeight.w500),
+                style: GetBodyTextStyle(context, fontWeight: FontWeight.w500),
               ),
               Gap(5),
               TextFormField(

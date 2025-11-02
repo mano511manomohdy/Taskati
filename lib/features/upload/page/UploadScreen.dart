@@ -29,7 +29,7 @@ class _UploadscreenState extends State<Uploadscreen> {
           TextButton(
             child: Text(
               "Done",
-              style: GetBodyTextStyle(color: AppColors.primaryColor),
+              style: GetBodyTextStyle(context, color: AppColors.primaryColor),
             ),
             onPressed: () {
               if (path != null && _namecontroller.text.isNotEmpty) {
@@ -96,7 +96,7 @@ class _UploadscreenState extends State<Uploadscreen> {
               TextFormField(
                 controller: _namecontroller,
                 decoration: InputDecoration(
-                  hintStyle: GetSmallTextStyle(),
+                  hintStyle: GetSmallTextStyle(context),
                   hintText: "Enter your name",
                 ),
               ),

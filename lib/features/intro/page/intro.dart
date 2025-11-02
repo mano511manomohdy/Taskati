@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Localdatahelper.getUserData(Localdatahelper.isUploadedKey) ?? false;
     Future.delayed(const Duration(seconds: 3), () {
       if (isuploaded) {
-        context.PushReplacement(const Uploadscreen());
+        context.PushReplacement(const Homescreen());
       } else {
         context.PushReplacement(const Uploadscreen());
       }

@@ -7,7 +7,10 @@ ShowDialogToast({required BuildContext context, required String text}) {
     SnackBar(
       backgroundColor: AppColors.redColor,
       duration: Duration(seconds: 2),
-      content: Text(text, style: GetBodyTextStyle(color: AppColors.whiteColor)),
+      content: Text(
+        text,
+        style: GetBodyTextStyle(context, color: AppColors.whiteColor),
+      ),
     ),
   );
 }

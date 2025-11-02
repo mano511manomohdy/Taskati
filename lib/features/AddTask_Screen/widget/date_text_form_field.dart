@@ -14,7 +14,10 @@ class DateTextFormField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Data", style: GetBodyTextStyle(fontWeight: FontWeight.w500)),
+        Text(
+          "Data",
+          style: GetBodyTextStyle(context, fontWeight: FontWeight.w500),
+        ),
         Gap(5),
         TextFormField(
           controller: DateController,

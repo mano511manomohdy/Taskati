@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:taskati/core/utils/AppColors.dart';
 
-TextStyle GetTitleTextStyle({
+TextStyle GetTitleTextStyle(
+  BuildContext context, {
   double? fontsize,
   Color? color,
   FontWeight? fontWeight,
@@ -10,11 +10,12 @@ TextStyle GetTitleTextStyle({
     fontFamily: "Poppins",
     fontWeight: fontWeight ?? FontWeight.bold,
     fontSize: fontsize ?? 18,
-    color: color ?? AppColors.darkColor,
+    color: color ?? Theme.of(context).colorScheme.onSurface,
   );
 }
 
-TextStyle GetBodyTextStyle({
+TextStyle GetBodyTextStyle(
+  BuildContext context, {
   double? fontsize,
   Color? color,
   FontWeight? fontWeight,
@@ -23,11 +24,12 @@ TextStyle GetBodyTextStyle({
     fontFamily: "Poppins",
     fontWeight: fontWeight ?? FontWeight.w600,
     fontSize: fontsize ?? 16,
-    color: color ?? AppColors.darkColor,
+    color: color ?? Theme.of(context).colorScheme.onSurface,
   );
 }
 
-TextStyle GetSmallTextStyle({
+TextStyle GetSmallTextStyle(
+  BuildContext context, {
   double? fontsize,
   Color? color,
   FontWeight? fontWeight,
@@ -36,6 +38,6 @@ TextStyle GetSmallTextStyle({
     fontFamily: "Poppins",
     fontWeight: fontWeight ?? FontWeight.normal,
     fontSize: fontsize ?? 14,
-    color: color ?? AppColors.greyColor,
+    color: color ?? Theme.of(context).colorScheme.onSurface,
   );
 }

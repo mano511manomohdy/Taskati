@@ -1,9 +1,6 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 import 'package:taskati/core/extenstions/Navigator.dart';
-import 'package:taskati/core/services/localDataHelper.dart';
 import 'package:taskati/core/utils/AppColors.dart';
 import 'package:taskati/core/utils/textStyle.dart';
 import 'package:taskati/core/widgets/custom_button.dart';
@@ -25,6 +22,7 @@ class HeaderDate extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 DateFormat.yMMMEd().format(DateTime.now()),
                 style: GetTitleTextStyle(
+                  context,
                   fontWeight: FontWeight.w600,
                   fontsize: 20,
                 ),
@@ -32,6 +30,7 @@ class HeaderDate extends StatelessWidget {
               Text(
                 "Today",
                 style: GetSmallTextStyle(
+                  context,
                   fontWeight: FontWeight.w600,
                   color: AppColors.darkColor,
                 ),

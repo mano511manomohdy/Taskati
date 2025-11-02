@@ -1,8 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:taskati/core/extenstions/Navigator.dart';
 import 'package:taskati/core/services/localDataHelper.dart';
 import 'package:taskati/core/utils/AppColors.dart';
 import 'package:taskati/core/utils/textStyle.dart';
+import 'package:taskati/features/profile/profile.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -20,18 +22,24 @@ class HomeHeader extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 "Hello ,${Localdatahelper.getUserData(Localdatahelper.NameKey)}",
                 style: GetTitleTextStyle(
+                  context,
                   color: AppColors.primaryColor,
                   fontsize: 20,
                 ),
               ),
-              Text("Have a Nice Day", style: GetBodyTextStyle()),
+              Text("Have a Nice Day", style: GetBodyTextStyle(context)),
             ],
           ),
         ),
-        CircleAvatar(
-          radius: 30,
-          backgroundImage: FileImage(
-            File(Localdatahelper.getUserData(Localdatahelper.ImageKey)),
+        GestureDetector(
+          onTap: () {
+            context.PushTo(Profile());
+          },
+          child: CircleAvatar(
+            radius: 30,
+            backgroundImage: FileImage(
+              File(Localdatahelper.getUserData(Localdatahelper.ImageKey)),
+            ),
           ),
         ),
       ],
