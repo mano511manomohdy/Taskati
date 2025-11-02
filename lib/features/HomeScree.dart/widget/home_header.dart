@@ -18,7 +18,7 @@ class HomeHeader extends StatelessWidget {
               Text(
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                "Hello ,${Localdatahelper.getUserData("name")}",
+                "Hello ,${Localdatahelper.getUserData(Localdatahelper.NameKey)}",
                 style: GetTitleTextStyle(
                   color: AppColors.primaryColor,
                   fontsize: 20,
@@ -31,7 +31,7 @@ class HomeHeader extends StatelessWidget {
         CircleAvatar(
           radius: 30,
           backgroundImage: FileImage(
-            File(Localdatahelper.getUserData("imagepath")),
+            File(Localdatahelper.getUserData(Localdatahelper.ImageKey)),
           ),
         ),
       ],

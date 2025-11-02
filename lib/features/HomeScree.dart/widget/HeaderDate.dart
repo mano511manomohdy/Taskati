@@ -2,10 +2,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
+import 'package:taskati/core/extenstions/Navigator.dart';
 import 'package:taskati/core/services/localDataHelper.dart';
 import 'package:taskati/core/utils/AppColors.dart';
 import 'package:taskati/core/utils/textStyle.dart';
 import 'package:taskati/core/widgets/custom_button.dart';
+import 'package:taskati/features/AddTask_Screen/page/Add_Task.dart';
 
 class HeaderDate extends StatelessWidget {
   const HeaderDate({super.key});
@@ -37,7 +39,13 @@ class HeaderDate extends StatelessWidget {
             ],
           ),
         ),
-        CustomButton(size: Size(145, 40), text: "+ AddTask", onpressed: () {}),
+        CustomButton(
+          size: Size(145, 40),
+          text: "+ AddTask",
+          onpressed: () {
+            context.PushTo(AddTask());
+          },
+        ),
       ],
     );
   }

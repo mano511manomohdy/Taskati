@@ -15,11 +15,14 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   initState() {
     super.initState();
+    bool isuploaded =
+        Localdatahelper.getUserData(Localdatahelper.isUploadedKey) ?? false;
     Future.delayed(const Duration(seconds: 3), () {
-      if (Localdatahelper.isUploadedKey == true) {
-        context.PushReplacement(const Homescreen());
+      if (isuploaded) {
+        context.PushReplacement(const Uploadscreen());
+      } else {
+        context.PushReplacement(const Uploadscreen());
       }
-      context.PushTo(const Uploadscreen());
     });
   }
 
