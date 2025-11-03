@@ -79,6 +79,14 @@ class _ProfileState extends State<Profile> {
                               width: double.infinity,
                               height: 200,
                               padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: Theme.of(
+                                  context,
+                                ).scaffoldBackgroundColor,
+                                borderRadius: const BorderRadius.vertical(
+                                  top: Radius.circular(20),
+                                ),
+                              ),
                               child: Column(
                                 children: [
                                   CustomButton(
@@ -137,7 +145,8 @@ class _ProfileState extends State<Profile> {
                             padding: EdgeInsets.all(16),
                             width: double.infinity,
                             height: 200,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).scaffoldBackgroundColor,
                               borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(20),
                               ),

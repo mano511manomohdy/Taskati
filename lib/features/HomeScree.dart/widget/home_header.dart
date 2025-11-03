@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:taskati/core/extenstions/Navigator.dart';
 import 'package:taskati/core/services/localDataHelper.dart';
 import 'package:taskati/core/utils/AppColors.dart';
@@ -11,38 +12,44 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                "Hello ,${Localdatahelper.getUserData(Localdatahelper.NameKey)}",
-                style: GetTitleTextStyle(
-                  context,
-                  color: AppColors.primaryColor,
-                  fontsize: 20,
+    // Added ValueListenableBuilder to listen for user data changes (name, image) and rebuild the header reactively
+    return ValueListenableBuilder(
+      valueListenable: Localdatahelper.userbox!.listenable(),
+      builder: (context, value, child) {
+        return Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    "Hello ,${Localdatahelper.getUserData(Localdatahelper.NameKey)}",
+                    style: GetTitleTextStyle(
+                      context,
+                      color: AppColors.primaryColor,
+                      fontsize: 20,
+                    ),
+                  ),
+                  Text("Have a Nice Day", style: GetBodyTextStyle(context)),
+                ],
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                context.PushTo(Profile());
+              },
+              child: CircleAvatar(
+                radius: 30,
+                backgroundImage: FileImage(
+                  File(Localdatahelper.getUserData(Localdatahelper.ImageKey)),
                 ),
               ),
-              Text("Have a Nice Day", style: GetBodyTextStyle(context)),
-            ],
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            context.PushTo(Profile());
-          },
-          child: CircleAvatar(
-            radius: 30,
-            backgroundImage: FileImage(
-              File(Localdatahelper.getUserData(Localdatahelper.ImageKey)),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 }
